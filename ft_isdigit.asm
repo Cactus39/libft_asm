@@ -1,8 +1,6 @@
-.intel_syntax noprefix
+global ft_isdigit
 
-.global ft_isdigit
-
-.section .text
+section .text
 ft_isdigit:
 	cmp edi, 48
 	jl .false
@@ -16,4 +14,5 @@ ft_isdigit:
 	mov eax, 1
 	ret
 
-.section .note.GNU-stack,""
+section .note.GNU-stack
+

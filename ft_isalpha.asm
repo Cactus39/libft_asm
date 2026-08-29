@@ -1,8 +1,6 @@
-.intel_syntax noprefix
+global ft_isalpha
 
-.global ft_isalpha
-
-.section .text
+section .text
 ft_isalpha:
 	cmp edi, 65
 	jl .false
@@ -21,4 +19,4 @@ ft_isalpha:
 	mov eax, 1
 	ret
 
-.section .note.GNU-stack,""
+section .note.GNU-stack
