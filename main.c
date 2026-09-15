@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
+#include <stdint.h>
 #include "libft.h"
 
 int	main(void)
@@ -34,6 +35,20 @@ int	main(void)
 	mem[12] = 0;
 	printf("memset x 12 %s\n", mem);
 	free(mem);
+	char *mem0 = malloc(sizeof(char) * 0xFFFFFFFF);
+	ft_bzero(mem0, 0xFFFFFFFF);
+	uint32_t i = 0;
+	printf("bzero check\n");
+	for (i = 0; i < 0xFFFFFFFF; i++)
+	{
+		if (mem0[i] != 0)
+			break;
+	}
+	if (i == 0xFFFFFFFF)
+		printf("bzero [OK]\n");
+	else
+		printf("[ERROR]\n");
+	free(mem0);
 
 
 
