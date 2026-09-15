@@ -1,10 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_isalpha(int c);
-int ft_isdigit(int c);
-int ft_isalnum(int c);
-int ft_isascii(int c);
-int ft_isprint(int c);
+#include "libft.h"
 
 int	main(void)
 {
@@ -29,7 +26,15 @@ int	main(void)
 	printf("isprint 31 %d\n", ft_isprint(31));
 	printf("isprint 32 %d\n", ft_isprint(32));
 	printf("isprint q %d\n", ft_isprint('q'));
-	printf("isprint 127 %d\n", ft_isprint(127));
+	printf("strlen qwe %lu\n", ft_strlen("qwe"));
+	printf("strlen '' %lu\n", ft_strlen(""));
+	printf("strlen qwe0 %lu\n", ft_strlen("qwe0"));
+	char *mem = malloc(sizeof(char) * 12);
+	ft_memset(mem, 'x', 12);
+	mem[12] = 0;
+	printf("memset x 12 %s\n", mem);
+	free(mem);
+
 
 
 	return (0);
