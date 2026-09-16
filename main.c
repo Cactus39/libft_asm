@@ -31,20 +31,13 @@ int	main(void)
 	printf("strlen '' %lu\n", ft_strlen(""));
 	printf("strlen qwe0 %lu\n", ft_strlen("qwe0"));
 	char *mem = malloc(sizeof(char) * 12);
-	ft_memset(mem, 'x', 12);
-	mem[12] = 0;
-	printf("memset x 12 %s\n", mem);
-	free(mem);
-	char *roda = "Hello";
-	char *res = malloc(sizeof(char) * 6);
+	ft_bzero(mem, 12);
+	ft_strlcpy(mem, "first", 6);
+	printf("mem %s\n", mem);
+	uint32_t i = ft_strlcat(mem, "second", 8);
+	printf("strcat %s\n", mem);
 
-	res = ft_memcpy(res, roda, 6);
-	printf("memcpy %s\n", res);
-	// res = NULL;
-	res = ft_memset(res, 0, 6);
-	size_t i = ft_strlcpy(res, "", 15);
-	printf("strlcpy %s result %lu\n", res, i);
-	free(res);
+	free(mem);
 
 
 
