@@ -42,8 +42,8 @@ int	main(void)
 	printf("memcpy %s\n", res);
 	// res = NULL;
 	res = ft_memset(res, 0, 6);
-	res = ft_memmove(res, roda, 3);
-	printf("memmove %s\n", res);
+	size_t i = ft_strlcpy(res, "", 15);
+	printf("strlcpy %s result %lu\n", res, i);
 	free(res);
 
 
