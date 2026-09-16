@@ -4,6 +4,8 @@ section .text
 ft_memset:
 	xor rcx, rcx
 	mov rax, rdi
+	cmp rdi, 0
+	je .fin
 .loop:
 	cmp rcx, rdx
 	je .fin

@@ -35,20 +35,16 @@ int	main(void)
 	mem[12] = 0;
 	printf("memset x 12 %s\n", mem);
 	free(mem);
-	char *mem0 = malloc(sizeof(char) * 0xFFFFFFFF);
-	ft_bzero(mem0, 0xFFFFFFFF);
-	uint32_t i = 0;
-	printf("bzero check\n");
-	for (i = 0; i < 0xFFFFFFFF; i++)
-	{
-		if (mem0[i] != 0)
-			break;
-	}
-	if (i == 0xFFFFFFFF)
-		printf("bzero [OK]\n");
-	else
-		printf("[ERROR]\n");
-	free(mem0);
+	char *roda = "Hello";
+	char *res = malloc(sizeof(char) * 6);
+
+	res = ft_memcpy(res, roda, 6);
+	printf("memcpy %s\n", res);
+	// res = NULL;
+	res = ft_memset(res, 0, 6);
+	res = ft_memmove(res, roda, 3);
+	printf("memmove %s\n", res);
+	free(res);
 
 
 

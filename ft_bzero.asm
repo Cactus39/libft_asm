@@ -4,18 +4,17 @@ section .text
 ft_bzero:
 	cmp rdi, 0
 	je .exit
-	xor rbx, rbx
+	xor rcx, rcx
 .loop:
-	cmp rbx, rsi
+	cmp rcx, rsi
 	je .exit
-	inc rbx
+	inc rcx
 	mov byte [rdi], 0
 	inc rdi
 	jmp .loop
 
 
 .exit:
-;	xor rax, rax
 	ret
 
 
