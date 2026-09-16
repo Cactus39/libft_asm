@@ -57,6 +57,4 @@ ft_strlcat:
 	pop rcx
 	ret
 
-
-
 section .note.GNU-stack
