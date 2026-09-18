@@ -1,14 +1,11 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
 #include "libft.h"
+
 
 int	main(void)
 {
-	// printf("strncmp A %d\n", ft_strncmp("test", "testss", 7));
-	// printf("strncmp A %d\n", ft_strncmp("test", "testss", 1));
-
-
+	printf("atoi 1 %d\n", ft_atoi("+1"));
+	printf("atoi 1234 %d\n", ft_atoi("-1234"));
+	printf("%d %d %d\n",'0', '9', '\r');
 	return (0);
 }
