@@ -4,8 +4,10 @@
 
 int	main(void)
 {
-	printf("atoi 1 %d\n", ft_atoi("+1"));
-	printf("atoi 1234 %d\n", ft_atoi("-1234"));
-	printf("%d %d %d\n",'0', '9', '\r');
+	char *str = ft_strdup("qwe");
+	printf("ft_strdup qwerty %s\n", str);
+	free(str);
+
+
 	return (0);
 }
