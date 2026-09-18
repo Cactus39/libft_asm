@@ -1,14 +1,14 @@
 global ft_tolower
-
+;int		ft_tolower(int c)
 section .text
 ft_tolower:
-	cmp rdi, 65
+	cmp edi, 65
 	jl .fin
-	cmp rdi, 90
+	cmp edi, 90
 	jg .fin
-	add rdi, 32
+	add edi, 32
 .fin:
-	mov rax, rdi
+	mov eax, edi
 	ret
 
 section .note.GNU-stack

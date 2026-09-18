@@ -1,5 +1,5 @@
 global ft_isalnum
-
+;int		ft_isalnum(int c)
 section .text
 ft_isalnum:
 	cmp edi, 48

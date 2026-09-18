@@ -6,8 +6,8 @@
 
 int	main(void)
 {
-	int a = 12;
-	printf("strncmp A %d\n", ft_strncmp("test", "testss", 7));
+	// printf("strncmp A %d\n", ft_strncmp("test", "testss", 7));
+	// printf("strncmp A %d\n", ft_strncmp("test", "testss", 1));
 
 
 	return (0);

@@ -1,5 +1,5 @@
 global ft_memmove
-
+;void	*ft_memmove(void *dest, const void *src, size_t n)
 extern ft_memcpy
 section .text
 ft_memmove:

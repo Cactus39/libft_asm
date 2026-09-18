@@ -1,14 +1,14 @@
 global ft_toupper
-
+;int		ft_toupper(int c)
 section .text
 ft_toupper:
-	cmp rdi, 97
+	cmp edi, 97
 	jl .fin
-	cmp rdi, 122
+	cmp edi, 122
 	jg .fin
-	sub rdi, 32
+	sub edi, 32
 .fin:
-	mov rax, rdi
+	mov eax, edi
 	ret
 
 section .note.GNU-stack

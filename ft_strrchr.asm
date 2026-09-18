@@ -1,5 +1,5 @@
 global ft_strrchr
-
+;char	*ft_strrchr(const char *s, int c)
 section .text
 ft_strrchr:
 	xor rcx, rcx

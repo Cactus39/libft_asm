@@ -1,5 +1,5 @@
 global ft_strlen
-
+;size_t	ft_strlen(char *s)
 section .text
 ft_strlen:
 	mov rax, -1

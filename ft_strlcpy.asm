@@ -1,5 +1,5 @@
 global ft_strlcpy
-
+;size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 extern ft_strlen
 section .text
 ft_strlcpy:

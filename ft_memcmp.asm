@@ -1,5 +1,5 @@
 global ft_memcmp
-;int	ft_memcmp(const void *s1, const void *s2, size_t n)
+;int		ft_memcmp(const void *s1, const void *s2, size_t n)
 section .text
 ft_memcmp:
 	xor rax, rax

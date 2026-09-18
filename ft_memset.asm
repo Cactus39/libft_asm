@@ -1,5 +1,5 @@
 global ft_memset
-
+;void	*ft_memset(void *s, int c, size_t n)
 section .text
 ft_memset:
 	xor rcx, rcx

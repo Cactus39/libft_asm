@@ -1,5 +1,5 @@
 global ft_memchr
-
+;void	*ft_memchr(const void *s, int c, size_t n)
 section .text
 ft_memchr:
 	xor rax, rax

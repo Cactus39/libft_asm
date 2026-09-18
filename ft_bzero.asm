@@ -1,5 +1,5 @@
 global ft_bzero
-
+;void	ft_bzero(void *s, size_t nn)
 section .text
 ft_bzero:
 	cmp rdi, 0

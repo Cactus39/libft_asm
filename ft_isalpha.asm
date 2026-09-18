@@ -1,5 +1,5 @@
 global ft_isalpha
-
+;int		ft_isalpha(int c)
 section .text
 ft_isalpha:
 	cmp edi, 65

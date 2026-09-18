@@ -1,5 +1,5 @@
 global ft_isascii
-
+;int		ft_isascii(int c)
 section .text
 ft_isascii:
 	cmp edi, 127

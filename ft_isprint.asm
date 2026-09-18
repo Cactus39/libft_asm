@@ -1,5 +1,5 @@
 global ft_isprint
-
+;int		ft_isprint(int c)
 section .text
 ft_isprint:
 	cmp edi, 126

@@ -1,5 +1,5 @@
 global ft_isdigit
-
+;int		ft_isdigit(int c)
 section .text
 ft_isdigit:
 	cmp edi, 48
