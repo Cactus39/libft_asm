@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include "libft.h"
+#include <unistd.h>
+#include <stdint.h>
 
 
 int	main(void)
 {
-	char *str = ft_strdup("qwe");
-	printf("ft_strdup qwerty %s\n", str);
-	free(str);
+	char *s;
 
-
+	s = ft_substr("qweasdzxc", 33, 2);
+	printf("substr %s\n", s);
+	free(s);
 	return (0);
 }

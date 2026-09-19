@@ -8,8 +8,8 @@ ft_bzero:
 .loop:
 	cmp rcx, rsi
 	je .exit
-	inc rcx
 	mov byte [rdi], 0
+	inc rcx
 	inc rdi
 	jmp .loop
 
