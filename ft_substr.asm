@@ -6,7 +6,7 @@ section .text
 	global ft_substr
 	extern ft_strlen
 	extern ft_strdup
-	extern ft_calloc
+	extern malloc
 
 ft_substr:
 	test    rdi, rdi
@@ -28,8 +28,7 @@ ft_substr:
 	mov     rdi, rdx                        ; len
 .len_ge_dest:
 	inc     rdi                             ; target for calloc + 1
-	mov     rsi, 1
-	call    ft_calloc
+	call    malloc wrt ..plt
 	pop     r8                              ; len
 	pop     rdi                             ; start
 	pop     r9                              ; src

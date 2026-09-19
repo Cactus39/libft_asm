@@ -2,7 +2,7 @@
 section .text
 	global ft_strdup
 	extern ft_strlen
-	extern ft_calloc
+	extern malloc
 
 ft_strdup:
 	test    rdi, rdi
@@ -12,8 +12,7 @@ ft_strdup:
 
 	inc     rax
 	mov     rdi, rax
-	mov     rsi, 1
-	call    ft_calloc
+	call    malloc wrt ..plt
 	pop     rdi
 	xor     rcx, rcx
 	test    rax, rax

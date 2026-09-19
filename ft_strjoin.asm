@@ -2,7 +2,7 @@
 section .text
 	global ft_strjoin
 	extern ft_strlen
-	extern ft_calloc
+	extern malloc
 
 ft_strjoin:
 	cmp     rdi, 0
@@ -20,12 +20,11 @@ ft_strjoin:
 	mov     rdi, [rsp + 8]
 	call    ft_strlen
 	add     rax, r12
-	mov     rsi, 1
 	mov     rdi, rax
 	inc     rdi
-	call    ft_calloc
+	call    malloc wrt ..plt
 	test    rax, rax
-	jz      .calloc_err
+	jz      .malloc_err
 	xor     rcx, rcx
 	jmp     .next
 
@@ -50,7 +49,7 @@ ft_strjoin:
 	pop     rbp
 	ret
 
-.calloc_err:
+.malloc_err:
 	pop     rdi
 	pop     rdi
 	pop     rdi
