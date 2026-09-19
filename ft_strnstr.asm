@@ -1,6 +1,7 @@
-global ft_strnstr
 ;char	*ft_strnstr(const char *big, const char *little, size_t len)
 section .text
+	global ft_strnstr
+
 ft_strnstr:
 	mov rax, rdi
 	cmp byte [rsi], 0

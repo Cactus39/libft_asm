@@ -1,6 +1,7 @@
-global ft_isdigit
 ;int		ft_isdigit(int c)
 section .text
+	global ft_isdigit
+
 ft_isdigit:
 	cmp edi, 48
 	jl .false

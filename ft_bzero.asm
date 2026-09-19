@@ -1,6 +1,7 @@
-global ft_bzero
 ;void	ft_bzero(void *s, size_t nn)
 section .text
+	global ft_bzero
+
 ft_bzero:
 	cmp rdi, 0
 	je .exit

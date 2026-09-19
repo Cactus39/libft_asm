@@ -1,6 +1,7 @@
-global ft_isalnum
 ;int		ft_isalnum(int c)
 section .text
+	global ft_isalnum
+
 ft_isalnum:
 	cmp edi, 48
 	jl .false

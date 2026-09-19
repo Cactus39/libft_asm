@@ -1,6 +1,7 @@
-global ft_isascii
 ;int		ft_isascii(int c)
 section .text
+	global ft_isascii
+
 ft_isascii:
 	cmp edi, 127
 	jg .false

@@ -1,8 +1,8 @@
-global ft_strdup
 ;char	*ft_strdup(const char *str)
 section .text
-extern ft_strlen
-extern ft_calloc
+	global ft_strdup
+	extern ft_strlen
+	extern ft_calloc
 
 ft_strdup:
 	test rdi, rdi

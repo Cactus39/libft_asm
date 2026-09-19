@@ -1,7 +1,8 @@
-global ft_memmove
 ;void	*ft_memmove(void *dest, const void *src, size_t n)
-extern ft_memcpy
 section .text
+	global ft_memmove
+	extern ft_memcpy
+
 ft_memmove:
 	xor rax, rax
 	cmp rdi, 0

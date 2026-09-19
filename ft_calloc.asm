@@ -1,8 +1,9 @@
-global ft_calloc
-section .text
 ;void	*ft_calloc(size_t nmemb, size_t size)
-extern malloc
-extern ft_bzero
+section .text
+	global ft_calloc
+	extern malloc
+	extern ft_bzero
+
 ft_calloc:
 	mov rax, rdi
 	mul rsi

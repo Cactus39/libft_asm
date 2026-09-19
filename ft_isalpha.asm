@@ -1,6 +1,7 @@
-global ft_isalpha
 ;int		ft_isalpha(int c)
 section .text
+	global ft_isalpha
+
 ft_isalpha:
 	cmp edi, 65
 	jl .false

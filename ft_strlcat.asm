@@ -1,7 +1,8 @@
-global ft_strlcat
-extern ft_strlen
 ;size_t	ft_strlcat(char *dst, const char *src, size_t size)
 section .text
+	global ft_strlcat
+	extern ft_strlen
+
 ft_strlcat:
 	push rcx
 	push r11

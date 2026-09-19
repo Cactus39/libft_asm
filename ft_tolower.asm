@@ -1,6 +1,7 @@
-global ft_tolower
 ;int		ft_tolower(int c)
 section .text
+	global ft_tolower
+
 ft_tolower:
 	cmp edi, 65
 	jl .fin

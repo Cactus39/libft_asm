@@ -1,6 +1,7 @@
-global ft_memcmp
 ;int		ft_memcmp(const void *s1, const void *s2, size_t n)
 section .text
+	global ft_memcmp
+
 ft_memcmp:
 	xor rax, rax
 	xor r8, r8

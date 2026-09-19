@@ -1,6 +1,7 @@
-global ft_atoi
 ;int	ft_atoi(const char *str)
 section .text
+	global ft_atoi
+
 ft_atoi:
 	xor r8, r8 ; sign 0 for positive 1 for negative
 	xor r9, r9 ; temp for number

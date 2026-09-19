@@ -1,6 +1,7 @@
-global ft_memchr
 ;void	*ft_memchr(const void *s, int c, size_t n)
 section .text
+	global ft_memchr
+
 ft_memchr:
 	xor rax, rax
 	xor r9, r9

@@ -1,6 +1,7 @@
-global ft_strchr
 ;char	*ft_strchr(const char *s, int c)
 section .text
+	global ft_strchr
+
 ft_strchr:
 .loop:
 	cmp byte [rdi], sil

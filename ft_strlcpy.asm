@@ -1,7 +1,8 @@
-global ft_strlcpy
 ;size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-extern ft_strlen
 section .text
+	global ft_strlcpy
+	extern ft_strlen
+
 ft_strlcpy:
 	xor rax, rax
 	cmp rdx, 0

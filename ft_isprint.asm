@@ -1,6 +1,7 @@
-global ft_isprint
 ;int		ft_isprint(int c)
 section .text
+	global ft_isprint
+
 ft_isprint:
 	cmp edi, 126
 	jg .false

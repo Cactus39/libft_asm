@@ -1,6 +1,7 @@
-global ft_toupper
 ;int		ft_toupper(int c)
 section .text
+	global ft_toupper
+
 ft_toupper:
 	cmp edi, 97
 	jl .fin

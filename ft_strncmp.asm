@@ -1,6 +1,7 @@
-global ft_strncmp
 ;int		ft_strncmp(const char *s1, const char *s2, size_t n)
 section .text
+	global ft_strncmp
+
 ft_strncmp:
 	xor rax, rax
 	xor r8, r8

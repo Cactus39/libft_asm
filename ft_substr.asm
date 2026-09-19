@@ -1,12 +1,13 @@
-global ft_substr
 ;char	*ft_substr(char const *s, unsigned int start, size_t len)
-
 section .data
 	empty_string db ""
+
 section .text
-extern ft_strlen
-extern ft_strdup
-extern ft_calloc
+	global ft_substr
+	extern ft_strlen
+	extern ft_strdup
+	extern ft_calloc
+
 ft_substr:
 	test rdi, rdi
 	jz .err
