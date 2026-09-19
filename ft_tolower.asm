@@ -3,13 +3,14 @@ section .text
 	global ft_tolower
 
 ft_tolower:
-	cmp edi, 65
-	jl .fin
-	cmp edi, 90
-	jg .fin
-	add edi, 32
+	cmp     edi, 65
+	jl      .fin
+	cmp     edi, 90
+	jg      .fin
+	add     edi, 32
+
 .fin:
-	mov eax, edi
+	mov     eax, edi
 	ret
 
 section .note.GNU-stack

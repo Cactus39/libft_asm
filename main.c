@@ -8,8 +8,8 @@ int	main(void)
 {
 	char *s;
 
-	s = ft_substr("qweasdzxc", 33, 2);
-	printf("substr %s\n", s);
+	s = ft_strjoin("qwe", "rty1");
+	printf("strjoin %s\n", s);
 	free(s);
 	return (0);
 }

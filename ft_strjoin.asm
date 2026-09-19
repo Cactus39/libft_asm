@@ -5,22 +5,57 @@ section .text
 	extern ft_calloc
 
 ft_strjoin:
-; --------------------------------------- ;
-	cmp rdi, 0
-	je .err
-	cmp rsi, 0
-	je .err
-; --------------------------------------- ;
-	push rdi
-	push rsi
-	push rbp
+	cmp     rdi, 0
+	je      .err
+	cmp     rsi, 0
+	je      .err
+	push    rbp
+	mov     rbp, rsp
+	push    rsi
+	push    rdi
+										; rsp = s1 rsp + 8 = s2
+	mov     rdi, [rsp]
+	call    ft_strlen
+	mov     r12, rax                    ; len(s1) saved in r12
+	mov     rdi, [rsp + 8]
+	call    ft_strlen
+	add     rax, r12
+	mov     rsi, 1
+	mov     rdi, rax
+	inc     rdi
+	call    ft_calloc
+	test    rax, rax
+	jz      .calloc_err
+	xor     rcx, rcx
+	jmp     .next
 
+.loop:
+		mov     r8b, byte [rdx]
+		test    r8b, r8b
+		jz      .next
+		mov     byte [rax + rcx], r8b
+		inc     rcx
+		inc     rdx
+		jmp     .loop
 
+.next:
+	cmp     rsp, rbp
+	je      .exit
+	pop     rdx
+	jmp     .loop
 
-; --------------------------------------- ;
-.err:
-	xor rax, rax
+.exit:
+	mov     byte [rax + rcx], 0
+	mov     rsp, rbp
+	pop     rbp
 	ret
-; --------------------------------------- ;
+
+.calloc_err:
+	pop     rdi
+	pop     rdi
+	pop     rdi
+.err:
+	xor     rax, rax
+	ret
 
 section .note.GNU-stack noalloc noexec

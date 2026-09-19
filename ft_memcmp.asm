@@ -3,19 +3,19 @@ section .text
 	global ft_memcmp
 
 ft_memcmp:
-	xor rax, rax
-	xor r8, r8
+	xor     rax, rax
+	xor     r8, r8
 .loop:
-	cmp rdx, 0
-	je .fin
-	dec rdx
-	movzx eax, byte [rdi]
-	movzx r8d, byte [rsi]
-	sub eax, r8d
-	jnz .fin
-	inc rdi
-	inc rsi
-	jmp .loop
+		cmp     rdx, 0
+		je      .fin
+		dec     rdx
+		movzx   eax, byte [rdi]
+		movzx   r8d, byte [rsi]
+		sub     eax, r8d
+		jnz     .fin
+		inc     rdi
+		inc     rsi
+		jmp     .loop
 
 .fin:
 	ret

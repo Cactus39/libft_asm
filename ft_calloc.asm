@@ -5,28 +5,28 @@ section .text
 	extern ft_bzero
 
 ft_calloc:
-	mov rax, rdi
-	mul rsi
-	jo .exit
-	mov rdi, rax
-	mov rcx, rax
+	mov     rax, rdi
+	mul     rsi
+	jo      .exit
+	mov     rdi, rax
+	mov     rcx, rax
 
-	push rcx
+	push    rcx
 	call malloc wrt ..plt
-	pop rcx
+	pop     rcx
 
-	test rax, rax
-	jz .exit
-	mov rdi, rax
-	mov rsi, rcx
+	test    rax, rax
+	jz      .exit
+	mov     rdi, rax
+	mov     rsi, rcx
 
-	push rax
-	call ft_bzero
-	pop rax
+	push    rax
+	call    ft_bzero
+	pop     rax
 	ret
 
 .exit:
-	xor rax, rax
+	xor     rax, rax
 	ret
 
 section .note.GNU-stack noalloc noexec

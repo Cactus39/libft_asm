@@ -3,18 +3,22 @@ section .text
 	global ft_strchr
 
 ft_strchr:
+	test    rdi, rdi
+	jz      .fin
+
 .loop:
-	cmp byte [rdi], sil
-	je .fin
-	cmp byte [rdi], 0
-	je .exit
-	inc rdi
-	jmp .loop
+		cmp     byte [rdi], sil
+		je      .fin
+		cmp     byte [rdi], 0
+		je      .exit
+		inc     rdi
+		jmp     .loop
+
 .exit:
-	xor rdi, rdi
-	jmp .fin
+	xor     rdi, rdi
+
 .fin:
-	mov rax, rdi
+	mov     rax, rdi
 	ret
 
 section .note.GNU-stack

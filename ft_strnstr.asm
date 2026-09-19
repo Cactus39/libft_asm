@@ -3,46 +3,47 @@ section .text
 	global ft_strnstr
 
 ft_strnstr:
-	mov rax, rdi
-	cmp byte [rsi], 0
-	je .fin
-	xor r9, r9
+	mov     rax, rdi
+	cmp     byte [rsi], 0
+	je      .fin
+	xor     r9, r9
 
 .big_loop:
-	cmp rdx, 0
-	je .exit
-	cmp byte [rdi], 0
-	je .exit
+	cmp     rdx, 0
+	je      .exit
+	cmp     byte [rdi], 0
+	je      .exit
 
-	xor rcx, rcx ; counter
-	mov r8, rdx ; little loop len
+	xor     rcx, rcx ; counter
+	mov     r8, rdx ; little loop len
+
 .little_loop:
-	mov r9b, byte [rdi + rcx]
-	cmp r9b, byte [rsi + rcx]
-	jne .next_big
-	cmp r8, 0
-	je .next_big
+		mov     r9b, byte [rdi + rcx]
+		cmp     r9b, byte [rsi + rcx]
+		jne     .next_big
+		cmp     r8, 0
+		je      .next_big
 
-	cmp byte [rsi + rcx], 0
-	je .found
-	inc rcx
-	dec r8
-	cmp byte [rsi + rcx], 0
-	je .found
-	jmp .little_loop
+		cmp     byte [rsi + rcx], 0
+		je      .found
+		inc     rcx
+		dec     r8
+		cmp     byte [rsi + rcx], 0
+		je      .found
+		jmp     .little_loop
 
 .next_big:
-	inc rdi
-	dec rdx
-	jmp .big_loop
+	inc     rdi
+	dec     rdx
+	jmp     .big_loop
 
 .exit:
-	xor rax, rax
-	jmp .fin
+	xor     rax, rax
+	jmp     .fin
+
 .found:
-	mov rax, rdi
+	mov     rax, rdi
 .fin:
 	ret
 
 section .note.GNU-stack
-
