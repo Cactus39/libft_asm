@@ -23,6 +23,7 @@ ft_strtrim:
 	xor     r13, r13
 	call    ft_strlen
 	mov     r14, rax
+	dec     r14
 
 .check_start:
 		movzx   esi, byte [r12 + r13]
@@ -31,12 +32,9 @@ ft_strtrim:
 		mov     rdi, r15
 		call    ft_strchr
 		test    rax, rax
-		jz      .next
+		jz      .check_end
 		inc     r13                         ; start counter
 		jmp     .check_start
-
-.next:
-	dec     r14
 
 .check_end:
 		movzx   esi, byte [r12 + r14]
@@ -55,7 +53,7 @@ ft_strtrim:
 
 	call    malloc wrt ..plt
 	test    rax, rax
-	jz      .restore_regs
+	jz      .fin
 	xor     rcx, rcx
 
 .copy:
@@ -69,12 +67,12 @@ ft_strtrim:
 
 .null_char:
 	mov     byte [rax + rcx], 0
-.restore_regs:
+
+.fin:
 	pop     r15
 	pop     r14
 	pop     r13
 	pop     r12
-.fin:
 	mov     rsp, rbp
 	pop     rbp
 	ret

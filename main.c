@@ -6,10 +6,18 @@
 
 int	main(void)
 {
-	char *s;
+	char **s = NULL;
 
-	s = ft_strtrim("", " ");
-	printf("strtrim %s\n", s);
+	s = ft_split("A good string to split", ' ');
+	if (s)
+	{
+		while (*s)
+		{
+			printf("%s\n", *s);
+			free(*s);
+			s++;
+		}
+	}
 	free(s);
 	return (0);
 }
