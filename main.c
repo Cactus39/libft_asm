@@ -8,7 +8,7 @@ int	main(void)
 {
 	char *s;
 
-	s = ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " ");
+	s = ft_strtrim("", " ");
 	printf("strtrim %s\n", s);
 	free(s);
 	return (0);

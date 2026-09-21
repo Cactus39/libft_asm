@@ -12,26 +12,23 @@ ft_strtrim:
 	test    rsi, rsi
 	jz      .err
 	push    rbp
-	mov     rbp, rsp                        ;------------------;
-											;-STACK BASE-------;
-	push    rdi                             ;-RSP-----src------;
-	push    rsi                             ;---------set------;
+	mov     rbp, rsp                        ;--------------------;
+											;----STACK BASE------;
+	push    r12                             ;---------r12--------; <- src
+	push    r13                             ;---------r13--------; <- start
+	push    r14                             ;---------r14--------; <- len
+	push    r15                             ;---------r15--------; <- set
+	mov     r12, rdi                        ;--------------------;
+	mov     r15, rsi
+	xor     r13, r13
 	call    ft_strlen
-	test    rax, rax
-	jz      .empty_line
-	push    rax                             ;---------len(src)-;
-	push    r12                             ;---------r12------;
-	push    r13                             ;---------r13------;
-	push    r14                             ;---------r14------;
-	xor     r13, r13                        ; start counter
-	mov     r12, [rbp - 8]                  ; src
 	mov     r14, rax
 
 .check_start:
 		movzx   esi, byte [r12 + r13]
 		cmp     esi, 0
 		je      .exit
-		mov     rdi, [rbp - 16]                 ; set
+		mov     rdi, r15
 		call    ft_strchr
 		test    rax, rax
 		jz      .next
@@ -39,12 +36,11 @@ ft_strtrim:
 		jmp     .check_start
 
 .next:
-	mov     r14, [rbp - 24]                 ; len(src)
 	dec     r14
 
 .check_end:
 		movzx   esi, byte [r12 + r14]
-		mov     rdi, [rbp - 16]
+		mov     rdi, r15
 		call    ft_strchr
 		test    rax, rax
 		jz      .exit
@@ -53,26 +49,19 @@ ft_strtrim:
 
 .exit:
 	inc     r14
-	mov     rdi, [rbp - 24]
-	sub     rdi, r14
-	mov     r14, rdi
-	mov     rdi, [rbp - 24]
-	sub     rdi, r14
-	sub     rdi, r13
-	mov     r14, rdi
+	sub     r14, r13
+	mov     rdi, r14
 	inc     rdi                             ; malloc size
 
-	call malloc wrt ..plt
+	call    malloc wrt ..plt
 	test    rax, rax
 	jz      .restore_regs
 	xor     rcx, rcx
 
 .copy:
-		mov     r8b, byte [r12 + r13]
-		cmp     r8b, 0
-		je      .null_char
 		cmp     rcx, r14
 		je      .null_char
+		mov     r8b, byte [r12 + r13]
 		mov     [rax + rcx], r8b
 		inc     rcx
 		inc     r13
@@ -81,13 +70,10 @@ ft_strtrim:
 .null_char:
 	mov     byte [rax + rcx], 0
 .restore_regs:
+	pop     r15
 	pop     r14
 	pop     r13
 	pop     r12
-	pop     rcx
-	pop     rcx
-	pop     rcx
-
 .fin:
 	mov     rsp, rbp
 	pop     rbp
@@ -96,12 +82,5 @@ ft_strtrim:
 .err:
 	xor     rax, rax
 	ret
-
-.empty_line:
-	pop     rsi
-	pop     rdi
-	call    ft_strdup
-	jmp     .fin
-
 
 section .note.GNU-stack noalloc noexec
