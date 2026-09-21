@@ -44,8 +44,6 @@ ft_strtrim:
 
 .check_end:
 		movzx   esi, byte [r12 + r14]
-;		cmp     r14, 0
-;		je      .exit
 		mov     rdi, [rbp - 16]
 		call    ft_strchr
 		test    rax, rax
@@ -63,7 +61,6 @@ ft_strtrim:
 	sub     rdi, r13
 	mov     r14, rdi
 	inc     rdi                             ; malloc size
-;	inc     r14
 
 	call malloc wrt ..plt
 	test    rax, rax
@@ -71,12 +68,12 @@ ft_strtrim:
 	xor     rcx, rcx
 
 .copy:
-		movzx   r8, byte [r12 + r13]
-		cmp     r8, 0
+		mov     r8b, byte [r12 + r13]
+		cmp     r8b, 0
 		je      .null_char
 		cmp     rcx, r14
 		je      .null_char
-		mov     [rax + rcx], r8
+		mov     [rax + rcx], r8b
 		inc     rcx
 		inc     r13
 		jmp     .copy
