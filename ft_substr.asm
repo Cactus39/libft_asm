@@ -1,6 +1,6 @@
 ;char	*ft_substr(char const *s, unsigned int start, size_t len)
-section .data
-	empty_string db ""
+section .rodata
+	empty_string db 0
 
 section .text
 	global ft_substr

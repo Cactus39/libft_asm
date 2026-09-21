@@ -8,8 +8,8 @@ int	main(void)
 {
 	char *s;
 
-	s = ft_strjoin("qwe", "rty1");
-	printf("strjoin %s\n", s);
+	s = ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " ");
+	printf("strtrim %s\n", s);
 	free(s);
 	return (0);
 }
