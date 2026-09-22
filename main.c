@@ -3,18 +3,16 @@
 #include <unistd.h>
 #include <stdint.h>
 
-char	f(unsigned int i, char c)
+void	f(unsigned int i, char *c)
 {
 	(void)i;
-	return (char)(ft_toupper(c));
+	*c = ft_toupper(*c);
 }
 
 int	main(void)
 {
-	char *s = "string to change";
-
-	s = ft_strmapi(s, &f);
+	char s[] = "string to change";
+	ft_striteri(s, &f);
 	printf("%s \n", s);
-	free(s);
 	return (0);
 }
