@@ -9,9 +9,9 @@ int	main(void)
 	char *s;
 	// s = ft_itoa(1234);
 	// printf("%s \n", s);
-	s = ft_itoa(-1234);
+	s = ft_itoa(-42);
 	printf("%s \n", s);
-	s = ft_itoa(-2147483648);
+	s = ft_itoa(-2147483647);
 	printf("%s \n", s);
 	s = ft_itoa(0x7FFFFFFF);
 	printf("%s \n", s);

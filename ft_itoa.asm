@@ -8,9 +8,6 @@ section .text
 	extern malloc
 
 ft_itoa:
-	test    edi, edi
-	jo      .overflow
-
 	push    rbp
 	mov     rbp, rsp
 	push    r12
@@ -26,7 +23,10 @@ ft_itoa:
 	mov     eax, r12d
 	test    eax, eax
 	jns      .count_len
+	cmp     edi, 0x80000000
+	je      .min_int_1
 	neg     eax
+.min_int_1:
 	inc     r13
 
 .count_len:
@@ -46,6 +46,8 @@ ft_itoa:
 	test    r12d, r12d
 	jns      .positive
 	mov     byte [r14], 45                 ; ascii code "-" 45 decimal
+	cmp     r12d, 0x80000000
+	je      .positive
 	neg     r12d
 .positive:
 	mov     byte [r14 + r13], 0
