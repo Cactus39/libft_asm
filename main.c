@@ -6,19 +6,14 @@
 
 int	main(void)
 {
-	char **s = NULL;
-
-	s = ft_split("", ' ');
-	char **f_copy = s;
-	if (s)
-	{
-		while (*s)
-		{
-			printf("%s\n", *s);
-			free(*s);
-			s++;
-		}
-	}
-	free(f_copy);
+	char *s;
+	// s = ft_itoa(1234);
+	// printf("%s \n", s);
+	s = ft_itoa(-1234);
+	printf("%s \n", s);
+	s = ft_itoa(-2147483648);
+	printf("%s \n", s);
+	s = ft_itoa(0x7FFFFFFF);
+	printf("%s \n", s);
 	return (0);
 }
