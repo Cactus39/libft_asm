@@ -8,7 +8,8 @@ int	main(void)
 {
 	char **s = NULL;
 
-	s = ft_split("A good string to split", ' ');
+	s = ft_split("", ' ');
+	char **f_copy = s;
 	if (s)
 	{
 		while (*s)
@@ -18,6 +19,6 @@ int	main(void)
 			s++;
 		}
 	}
-	free(s);
+	free(f_copy);
 	return (0);
 }
