@@ -3,15 +3,15 @@ section .text
 	global ft_memcpy
 
 ft_memcpy:
-	xor     rax, rax
-	cmp     rdi, 0
-	je      .exit
-	cmp     rsi, 0
-	je      .exit
+	mov     rax, rdi
+	test    rdi, rdi
+	jz      .exit
+	test    rsi, rsi
+	jz      .exit
 	mov     rax, rdi
 .loop:
-		cmp     rdx, 0
-		je      .exit
+		test    rdx, rdx
+		jz      .exit
 		dec     rdx
 		mov     cl, byte [rsi]
 		mov     byte [rdi], cl

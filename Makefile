@@ -5,7 +5,7 @@ FILES = ft_isalnum.asm ft_isalpha.asm ft_isascii.asm ft_isdigit.asm ft_isprint.a
 		ft_strrchr.asm ft_strncmp.asm ft_memchr.asm ft_memcmp.asm ft_strnstr.asm\
 		ft_atoi.asm ft_calloc.asm ft_strdup.asm ft_substr.asm ft_strjoin.asm\
 		ft_strtrim.asm ft_split.asm ft_itoa.asm ft_strmapi.asm ft_striteri.asm\
-		ft_putchar_fd.asm ft_putstr_fd.asm ft_putendl_fd.asm
+		ft_putchar_fd.asm ft_putstr_fd.asm ft_putendl_fd.asm ft_putnbr_fd.asm
 NAME = libft.a
 OBJS = $(FILES:.asm=.o)
 HEADER = libft.h
@@ -15,7 +15,7 @@ all: $(NAME) clean
 $(NAME): $(OBJS)
 	ar -rcs $@ $^
 main:
-	cc -Wall -Werror -Wextra -g main.c libft.a -o a.out
+	cc -Wall -Werror -Wextra -g main.c -L. -lft -o a.out
 %.o: %.asm
 	nasm $< -f elf64 -g -F dwarf -o $@
 clean:

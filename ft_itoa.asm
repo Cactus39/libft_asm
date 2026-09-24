@@ -1,6 +1,7 @@
 ;char	*ft_itoa(int n)
 section .rodata
 	system_str  db "0123456789"
+;	system_str  db "0123456789ABCDEF"
 	system_len  equ $ - system_str
 
 section .text
