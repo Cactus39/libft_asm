@@ -14,6 +14,9 @@ ft_strncmp:
 		movzx   r9d, byte [rsi + r8]
 		inc     r8
 		sub     eax, r9d
+		test    r9d, r9d
+		jz      .fin
+		test    eax, eax
 		jz      .loop
 
 .fin:

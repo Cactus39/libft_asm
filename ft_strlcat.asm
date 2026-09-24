@@ -23,7 +23,7 @@ ft_strlcat:
 	test    rdx, rdx
 	jz      .break
 	cmp     r11, rdx
-	jge     .break
+	jae     .break
 	add     r12, r11
 	sub     rdx, r11
 
@@ -31,7 +31,7 @@ ft_strlcat:
 		cmp     byte [r14], 0
 		je      .exit
 		cmp     rdx, 1
-		jle     .exit
+		jbe     .exit
 		mov     cl, byte [r14]
 		mov     byte [r12], cl
 		inc     r14

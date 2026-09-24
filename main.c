@@ -4,19 +4,18 @@
 #include <stdint.h>
 #include <sys/uio.h>
 #include <sys/wait.h>
-
-
+#include <string.h>
+struct s
+{
+	char	a;
+	char	*b;
+};
 int	main(void)
 {
-	// char *src = "S";
-	void *res;
-	char dest[100] = {'a'};
-	printf("%p\n", dest);
+	char *s = ft_strjoin("", "");
+	printf("%s\n", s);
+	// free(s);
 
-	res = ft_memcpy(dest, NULL, 0);
-	printf("%p\n", dest);
-	printf("%p\n", res);
-	// printf("%d", '-');
 	return (0);
 }
 

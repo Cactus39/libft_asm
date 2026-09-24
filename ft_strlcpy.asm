@@ -11,8 +11,8 @@ ft_strlcpy:
 
 .loop:
 		cmp     rax, rdx
-		jge     .zero_byte
-		cmp     byte [rsi], 0
+		jae     .zero_byte
+		cmp     byte [rsi + rax], 0
 		je      .zero_byte
 		mov     cl, byte [rsi + rax]
 		mov     byte [rdi + rax], cl

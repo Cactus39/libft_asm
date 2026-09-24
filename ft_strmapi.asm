@@ -20,8 +20,6 @@ ft_strmapi:
 	mov     r13, rsi                            ; <- func
 	xor     r14, r14                            ; <- counter
 	call    ft_strlen
-	test    rax, rax
-	jz      .fin
 	inc     rax
 	mov     rdi, rax
 	call    malloc wrt ..plt

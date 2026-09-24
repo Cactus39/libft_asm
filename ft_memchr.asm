@@ -16,7 +16,7 @@ ft_memchr:
 		inc     rdi
 		jmp     .loop
 
-.result
+.result:
 	mov     rax, rdi
 .fin:
 	ret

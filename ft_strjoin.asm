@@ -16,8 +16,10 @@ ft_strjoin:
 										; rsp = s1 rsp + 8 = s2
 	mov     rdi, [rsp]
 	call    ft_strlen
+
 	mov     r12, rax                    ; len(s1) saved in r12
 	mov     rdi, [rsp + 8]
+
 	call    ft_strlen
 	add     rax, r12
 	mov     rdi, rax
@@ -50,9 +52,7 @@ ft_strjoin:
 	ret
 
 .malloc_err:
-	pop     rdi
-	pop     rdi
-	pop     rdi
+	add     rsp, 24
 .err:
 	xor     rax, rax
 	ret
